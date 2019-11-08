@@ -1,9 +1,11 @@
 package com.lti.dao;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import com.lti.model.Customer;
 
@@ -54,4 +56,22 @@ public class CustomerDao {
 				return cust;
 		
 	}
+	
+	public List<Customer> fetchByCity(String city) {
+		
+		EntityManagerFactory emf = 
+				Persistence.createEntityManagerFactory("oracleTest");
+		
+		EntityManager em = emf.createEntityManager();
+		
+		//find method generate select query
+		Query q=em.createQuery("select t from Customer as t where t.city=:ct");
+		q.setParameter("ct",city);
+		List <Customer> customers=q.getResultList( );
+		em.close();
+		emf.close();
+
+		return customers;
+	}
+	
 }

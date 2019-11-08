@@ -1,6 +1,10 @@
 package com.lti.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -39,15 +43,34 @@ public class custservlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Customer cust = new Customer();
-		//int id = Integer.parseInt(request.getParameter("txtcustid"));
-		String name = request.getParameter("txtcustname");
+//		int id = Integer.parseInt(request.getParameter("txtcustid"));
+//		String name = request.getParameter("txtxcustname");
 		String city = request.getParameter("txtcustcity");
-		cust.setCname(name);
-		cust.setCity(city);
-		CustomerDao dao = new CustomerDao();
-		dao.save(cust);
 
+//		Customer cust = new Customer();
+//		cust.setCname(name);
+//		cust.setCity(city);
+//		
+//		PrintWriter out=response.getWriter();
+//		
+//		CustomerDao dao = new CustomerDao();
+//		cust=dao.fetch(id);
+//		out.println(cust.getCname());
+//		out.println(cust.getCity());
+
+		Customer cust = new Customer();
+//		cust.setCname(name);
+		cust.setCity(city);
+
+		PrintWriter out=response.getWriter();
+
+		CustomerDao dao = new CustomerDao();
+		List<Customer> cust1=new ArrayList<Customer>();
+		cust1=dao.fetchByCity(city);
+		for(Customer c1 :cust1){
+		out.println(c1);
+		}
+	
 	}
 
 }

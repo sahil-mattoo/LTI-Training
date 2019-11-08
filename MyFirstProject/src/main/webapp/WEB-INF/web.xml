@@ -10,8 +10,18 @@
   	<description></description>
   	<servlet-class>com.lti.controller.custservlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>UserAddressServlet</servlet-name>
+  	<display-name>UserAddressServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.lti.controller.UserAddressServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>custservlet</servlet-name>
   	<url-pattern>/custservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>UserAddressServlet</servlet-name>
+  	<url-pattern>/UserAddressServlet</url-pattern>
   </servlet-mapping>
 </web-app>

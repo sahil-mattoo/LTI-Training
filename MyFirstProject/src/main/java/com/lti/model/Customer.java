@@ -41,4 +41,9 @@ public class Customer {
 		this.city = city;
 	}
 
+	@Override
+	public String toString() {
+		return "Customer [cid=" + cid + ", cname=" + cname + ", city=" + city + "]";
+	}
+
 }
