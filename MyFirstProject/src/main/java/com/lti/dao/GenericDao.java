@@ -24,7 +24,6 @@ public class GenericDao {		//Universal Dao, Sabka Dao, Everyone's Dao
 			
 		}
 
-
 	public Object fetchById(Class clazz, Object pk) {
 			
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("oracleTest");
@@ -36,9 +35,10 @@ public class GenericDao {		//Universal Dao, Sabka Dao, Everyone's Dao
 		emf.close();
 			
 		return obj;
-			
-		}
-		
+	
+		}	
+	
+	
 }
 
 
